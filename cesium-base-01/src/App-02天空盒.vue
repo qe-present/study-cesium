@@ -26,6 +26,17 @@ onMounted(() => {
     timeline: true, //是否显示时间轴工具
     fullscreenButton: true, //是否显示全屏按钮工具
     infoBox: true, //是否显示信息框
+    skyBox:new Cesium.SkyBox({
+      sources: {
+        positiveX: "./wanxia/SunSetRight.png",
+        negativeX: "./wanxia/SunSetLeft.png",
+        positiveY: "./wanxia/SunSetFront.png",
+        negativeY: "./wanxia/SunSetBack.png",
+        positiveZ: "./wanxia/SunSetUp.png",
+        negativeZ: "./wanxia/SunSetDown.png",
+      }
+    })
+
   })
   viewer._cesiumWidget._creditContainer.style.display = 'none'
 });

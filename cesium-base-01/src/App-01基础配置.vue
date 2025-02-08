@@ -26,6 +26,8 @@ onMounted(() => {
     timeline: true, //是否显示时间轴工具
     fullscreenButton: true, //是否显示全屏按钮工具
     infoBox: true, //是否显示信息框
+
+
   })
   viewer._cesiumWidget._creditContainer.style.display = 'none'
 });
