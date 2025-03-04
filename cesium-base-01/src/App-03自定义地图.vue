@@ -51,9 +51,9 @@ onMounted(() => {
 //         subdomains: ["a", "b", "c", "d"],
 //       })
   //高德地图
-  let imageryProvider = new Cesium.UrlTemplateImageryProvider({
-    url: "http://webrd02.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}",
-  });
+  // let imageryProvider = new Cesium.UrlTemplateImageryProvider({
+  //   url: "http://webrd02.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}",
+  // });
   viewer.imageryLayers.addImageryProvider(imageryProvider);
 
 });

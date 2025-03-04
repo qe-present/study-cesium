@@ -18,24 +18,24 @@ onMounted(async () => {
   );
 
   const viewer = new Cesium.Viewer('cesiumContainer', {
-    infoBox: false,
+    infoBox: true,
   });
-  // setView 瞬间到达指定的位置
-  // 天安门的位置
+  // 1 屏幕坐标系——二维坐标系 Cartesian2
+  // 2 地理坐标系——WGS-84三维坐标系 Cartographic类型 经度、纬度、高度
+  // 3 三维笛卡尔坐标系——Cartesian3类型
+
+  // 角度转弧度
+  let radius=Cesium.Math.toRadians(90)
+  console.log(radius)
+  // 弧度转角度
+  let angle=Cesium.Math.toDegrees(radius)
+  console.log(angle)
+  // 经纬度转笛卡尔坐标
   let position = Cesium.Cartesian3.fromDegrees(116.39, 39.9, 1000)
-  viewer.camera.setView({
-    // 指定位置
-    destination: position,
-    //指定相机视角
-    orientation: {
-      heading: Cesium.Math.toRadians(0), // 水平方向 东南西北
-      pitch: Cesium.Math.toRadians(-60), // 垂直方向 向上向下看
-      roll: 0  // 侧倾角 转头
-    }
-  })
-
-
-
+  console.log(position)
+  // 笛卡尔坐标转经纬度
+  let cartographic = Cesium.Cartographic.fromCartesian(position)
+  console.log(Cesium.Math.toDegrees(cartographic.longitude),Cesium.Math.toDegrees(cartographic.latitude),cartographic.height)
 });
 </script>
 

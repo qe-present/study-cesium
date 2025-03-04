@@ -18,22 +18,17 @@ onMounted(async () => {
   );
 
   const viewer = new Cesium.Viewer('cesiumContainer', {
-    infoBox: false,
+    infoBox: true,
+    // terrainProvider: await Cesium.createWorldTerrainAsync({ // 创建地形
+    //   requestWaterMask: true, // 请求水面遮罩
+    //   requestVertexNormals: true, // 请求顶点法线
+    // })
+    terrainProvider: new Cesium.CesiumTerrainProvider({
+      url:"./terrain",
+      requestWaterMask: true,
+      requestVertexNormals: true
+    })
   });
-  // setView 瞬间到达指定的位置
-  // 天安门的位置
-  let position = Cesium.Cartesian3.fromDegrees(116.39, 39.9, 1000)
-  viewer.camera.setView({
-    // 指定位置
-    destination: position,
-    //指定相机视角
-    orientation: {
-      heading: Cesium.Math.toRadians(0), // 水平方向 东南西北
-      pitch: Cesium.Math.toRadians(-60), // 垂直方向 向上向下看
-      roll: 0  // 侧倾角 转头
-    }
-  })
-
 
 
 });
